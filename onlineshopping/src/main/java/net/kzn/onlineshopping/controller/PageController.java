@@ -1,7 +1,6 @@
 package net.kzn.onlineshopping.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -12,33 +11,30 @@ public class PageController {
 	public ModelAndView index() {
 		
 		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("greeting","Welcome to Spring Web MVC");
+		mv.addObject("title","Home");
+		mv.addObject("userClickHome",true);
 		return mv;
 		
 	}
 	
-	/*@RequestMapping(value="/test")
-	public ModelAndView test(@RequestParam(value="greeting",required=false) String greeting) {
+	@RequestMapping(value = "/about")
+	public ModelAndView about() {
 		
-		if(greeting == null) {
-			
-			greeting = "Hello there";
-		}
 		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("greeting",greeting);
+		mv.addObject("title","About Us");
+		mv.addObject("userClickAbout",true);
 		return mv;
-	}*/
+		
+	}
 	
-	@RequestMapping(value="/test/{greeting}")
-	public ModelAndView test(@PathVariable("greeting") String greeting) {
+	@RequestMapping(value = "/contact")
+	public ModelAndView contact() {
 		
-		if(greeting == null) {
-			
-			greeting = "Hello there";
-		}
 		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("greeting",greeting);
+		mv.addObject("title","Contact Us");
+		mv.addObject("userClickContact",true);
 		return mv;
+		
 	}
 
 }
