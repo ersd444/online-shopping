@@ -15,6 +15,13 @@
   
   <dependencies>
   
+  <!-- Link backend project -->
+  <dependency>
+    <groupId>net.kzn</groupId>
+  	<artifactId>shoppingbakend</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
+  </dependency>
+  
   <!-- JAVA EE API -->
 	<dependency>
 	    <groupId>javax</groupId>
