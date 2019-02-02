@@ -70,9 +70,14 @@
 		<!-- Footer comes here -->
 		<%@include file="./shared/footer.jsp"%>
 
-		<!-- Bootstrap core JavaScript -->
+		<!-- JQUERY -->
 		<script src="${js}/jquery.min.js"></script>
+		
+		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/bootstrap.min.js"></script>
+		
+		<!-- DataTable Plugins -->
+		<script src="${js}/jquery.dataTables.js"></script>
 
 		<!-- Self coded javascript -->
 		<script src="${js}/myapp.js"></script>
