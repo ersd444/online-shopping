@@ -11,7 +11,7 @@
    http://www.springframework.org/schema/mvc/spring-mvc.xsd
    ">
    
-   <context:component-scan base-package="net.kzn.onlineshopping.controller" />
+   <context:component-scan base-package="net.kzn.onlineshopping" />
    <context:component-scan base-package="net.kzn.shoppingbakend" />
    
    <bean id="viewResolver"
