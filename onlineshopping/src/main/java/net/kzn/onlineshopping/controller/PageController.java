@@ -1,10 +1,13 @@
 package net.kzn.onlineshopping.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 import net.kzn.shoppingbakend.dao.CategoryDAO;
 import net.kzn.shoppingbakend.dao.ProductDAO;
 import net.kzn.shoppingbakend.dto.Category;
@@ -12,6 +15,8 @@ import net.kzn.shoppingbakend.dto.Product;
 
 @Controller
 public class PageController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(PageController.class);
 	
 	@Autowired
 	private CategoryDAO categoryDAO;
@@ -24,6 +29,9 @@ public class PageController {
 		
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title","Home");
+		
+		logger.info("Inside Page Controller index method - INFO");
+		logger.debug("Inside Page Controller index method - DEBUG");
 		
 		//passing the list of categories
 		mv.addObject("categories",categoryDAO.list());

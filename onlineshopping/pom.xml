@@ -38,6 +38,20 @@
       <scope>test</scope>
     </dependency>
     
+    
+       <!-- SPRING Core -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-core</artifactId>
+	    <version>${spring.version}</version>
+	    <exclusions>
+	    	<exclusion>
+	    		<groupId>commons-logging</groupId>
+	    		<artifactId>commons-logging</artifactId>
+	    	</exclusion>
+	    </exclusions>
+	</dependency>
+    
       <!-- SPRING WEB MVC -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
