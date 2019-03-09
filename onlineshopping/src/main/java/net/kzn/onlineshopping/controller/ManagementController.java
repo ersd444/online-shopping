@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.kzn.onlineshopping.util.FileUploadUtility;
+import net.kzn.onlineshopping.validator.ProductValidator;
 import net.kzn.shoppingbakend.dao.CategoryDAO;
 import net.kzn.shoppingbakend.dao.ProductDAO;
 import net.kzn.shoppingbakend.dto.Category;
@@ -61,13 +62,14 @@ public class ManagementController {
 	
 	//handling product submission
 	@RequestMapping(value="/products", method = RequestMethod.POST)
-	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult result,Model model,HttpServletRequest request) {
+	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult results,Model model,HttpServletRequest request) {
 		
 		logger.info(mProduct.toString()); 
 		
+		new ProductValidator().validate(mProduct, results); 
 		
 		//check if there are any error
-		if(result.hasErrors()) {
+		if(results.hasErrors()) {
 			
 			model.addAttribute("userClickManageProducts", true);
 			model.addAttribute("title", "Manage Products");
