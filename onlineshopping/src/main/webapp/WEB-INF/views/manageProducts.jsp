@@ -41,8 +41,8 @@
 							
 								<sf:input type="text" path="name" id="name" placeholder="Product path" class="form-control" />
 								
-								<!-- <em class="help-block">Please enter Product path!</em> -->								
-							
+								<sf:errors path="name" cssClass="help-block" element="em" />							
+							 
 							</div>
 						
 						</div>
@@ -54,6 +54,8 @@
 							<div class="col-md-8">
 							
 								<sf:input type="text" path="brand" id="brand" placeholder="Brand path" class="form-control" />
+								
+								<sf:errors path="brand" cssClass="help-block" element="em" />
 								
 							</div>
 						
@@ -67,6 +69,8 @@
 							
 								<sf:textarea path="description" id="description" placeholder="Write a description" class="form-control"></sf:textarea>
 								
+								<sf:errors path="description" cssClass="help-block" element="em" />
+								
 							</div>
 						
 						</div>
@@ -78,6 +82,8 @@
 							<div class="col-md-8">
 							
 								<sf:input type="number" path="unitPrice" id="unitPrice" placeholder="Unit Price in &#8377" class="form-control" />
+							
+								<sf:errors path="unitPrice" cssClass="help-block" element="em" />
 							
 							</div>
 						
