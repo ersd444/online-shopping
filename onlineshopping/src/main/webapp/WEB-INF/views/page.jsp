@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
@@ -8,41 +7,35 @@
 <spring:url var="images" value="/resources/images" />
 
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
-<!DOCTYPE html>
-<html lang="en">
-
+ 
+ <!DOCTYPE html>
+<html>
 <head>
-
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-
-<title>Online Shopping - ${title}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Online Shopping - ${title}</title>
 
 <script>
 	window.menu = '${title}';
 	window.contextRoot = '${contextRoot}';
 </script>
 
-<!-- Bootstrap core CSS -->
-<link href="${css}/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS dependencies -->
+    <link rel="stylesheet" type="text/css" href="${css}/bootstrap.min.css">
+    
+    
+	<!-- Bootstrap DataTables -->
+	<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
-<!-- Bootstrap Readable Theme -->
-<link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
-
-<!-- Bootstrap DataTables -->
-<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="${css}/myapp.css" rel="stylesheet">
-
+	<!-- Custom styles for this template -->
+	<link href="${css}/myapp.css" rel="stylesheet">
+	
+	<%-- <link href="${css}/shop-homepage.css" rel="stylesheet"> --%>
+    
 </head>
-
 <body>
-
-	<div class="wrapper">
+    
+    	<div class="wrapper">
 		<!-- Navigation -->
 		<%@include file="./shared/navbar.jsp"%>
 
@@ -78,10 +71,8 @@
 			<c:if test="${userClickManageProducts == true}">
 				<%@include file="manageProducts.jsp"%>
 			</c:if>
-
-		</div>
-
-		<!-- Footer comes here -->
+			
+			<!-- Footer comes here -->
 		<%@include file="./shared/footer.jsp"%>
 
 		<!-- JQUERY -->
@@ -95,11 +86,28 @@
 		
 		<!-- DataTable Bootstrap Script -->
 		<script src="${js}/dataTables.bootstrap.js"></script>
+		
+		<!-- Bootbox -->
+		<script src="${js}/bootbox.min.js"></script>
+		
+		<script src="${js}/bootbox.locales.min.js"></script>
+		
+		<script src="${js}/popper.min.js"></script>
 
 		<!-- Self coded javascript -->
 		<script src="${js}/myapp.js"></script>
 
 	</div>
-</body>
 
+		</div>
+    
+    <!-- bootbox code -->
+    <script>
+        $(document).on("click", ".show-alert", function(e) {
+            bootbox.alert("Hello world!", function() {
+                console.log("Alert Callback");
+            });
+        });
+    </script>
+</body>
 </html>
