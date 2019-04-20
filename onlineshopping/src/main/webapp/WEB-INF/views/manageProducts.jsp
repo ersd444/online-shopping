@@ -128,6 +128,12 @@
 								  itemValue = "id"
 								/>
 								
+								<c:if test="${product.id == 0 }">
+								  <div class="text-right">
+								      <br/>
+								      <button type="button" data-toggle="modal" data-target="#myCategoryModal" class="btn btn-warning btn-xs">Add Category</button>
+								  </div>
+								</c:if>
 							
 							</div>
 						
@@ -208,5 +214,42 @@
 		</div>
 	
 	</div>
+
+  <div class="modal fade" id="myCategoryModal" role="dialog" tabindex="-1">
+  		<div class="modal-dialog" role="document">
+  			<div class="modal-content">
+  			    <div class="modal-header">
+  			    	<h4 class="modal-title">Add New Category</h4>
+  			    	<button type="button" class="close" data-dismiss="modal">
+  			    		<span>&times;</span>
+  			    	</button>
+			 	</div>
+			 	<div class="modal-body">
+			 		<!-- Category Form -->
+			 		<sf:form modelAttribute="category" action="${contextRoot}/manage/category" method="POST" class="form-horizontal">
+			 			<div class="form-group">
+							<label class="control-label col-md-4" for="category_name">Category Name:</label>
+							<div class="col-md-8">
+								<sf:input type="text" path="name" id="category_name" placeholder="Name" class="form-control" />
+								<sf:errors path="name" cssClass="help-block" element="em" />							
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-4" for="category_description">Category Description:</label>
+							<div class="col-md-8">
+								<sf:textarea cols="" rows="5" path="description" id="category_description" placeholder="Description" class="form-control" />
+								<sf:errors path="description" cssClass="help-block" element="em" />							
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-offset-4 col-md-8">
+								<input type="submit" value="Add Categroy" class="btn btn-primary"/>
+							</div>
+						</div>
+			 		</sf:form>
+			 	</div>
+			 </div>
+  		</div>
+  </div>
 
 </div>
